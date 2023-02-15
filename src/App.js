@@ -1,10 +1,17 @@
-import './App.css';
+import React from 'react'
+import { Provider } from 'react-redux';
+import Body from './components/Body';
+import Header from './components/Header';
+import store from './utils/store';
 
 function App() {
   return (
-    <div>
-      <h1 className='text-2xl'>To Chaliye shru krte hai</h1>
+    <Provider store={store}>
+    <div> 
+      <Header />
+      <Body/>
     </div>
+    </Provider>
   );
 }
 
