@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 import VideoCard from "./VideoCard";
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
+
   useEffect(() => {
     getVideos();
   }, []);
@@ -13,9 +15,13 @@ const VideoContainer = () => {
     const json = await data.json();
     setVideos(json.items);
   };
-  return <div>
-    <VideoCard info={videos[0]} />
-  </div>;
+  return (
+  <div className="flex flex-wrap">
+    {videos.map((video)=>(
+      <Link to={"/watch?v="+video.id}> <VideoCard info={video} key={video.id} /></Link>
+    ))}
+  </div>
+  );
 };
 
 export default VideoContainer;

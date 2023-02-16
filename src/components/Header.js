@@ -4,6 +4,7 @@ import { BiVideoPlus } from "react-icons/bi";
 import { MdOutlineNotifications } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -17,11 +18,11 @@ const Header = () => {
           className="text-2xl mx-2 my-5 cursor-pointer"
           onClick={() => toggleMenuHandler()}
         />
-        <img
+       <a href="/"> <img
           className="h-16  text-center"
           alt="logo"
           src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6.jpg"
-        />
+        /></a>
       </div>
       <div className="col-span-10 mx-14 mr-4">
         <input
